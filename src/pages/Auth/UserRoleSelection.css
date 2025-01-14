@@ -1,0 +1,185 @@
+/* General container styling */
+.user-role-container {
+  background-color: #f4f6f8;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Background Section */
+.background-section {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-text {
+  position: absolute;
+  color: white;
+  text-align: center;
+  top: 20%; /* Adjusted to move higher */
+}
+
+.overlay-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+  color: whitesmoke; /* Change this color to the desired one */
+}
+
+
+.overlay-text h2 {
+  font-size: 1.5rem;
+  font-weight: 00;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Styling */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between; /* Align items on the left and right */
+  align-items: center;
+  z-index: 10;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+  margin: 0;
+}
+
+/* Timer Styling */
+.current-time {
+  position: relative; /* Ensure it's in the same row */
+  font-size: 16px;
+  color: #333;
+  margin-left: 20px; /* Space between the logo and the timer */
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -100px; /* Adjusted to move content up */
+  z-index: 5;
+}
+
+/* Content Styling */
+.content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 55%;
+  max-width: 700px;
+  text-align: center;
+}
+
+/* Welcome message */
+.welcome-message h2 {
+  font-size: 28px;
+  color: #333;
+}
+
+.welcome-message p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Role cards */
+.role-card {
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 160px;
+  margin: 10px;
+}
+
+.role-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+  border: 2px solid #2c73d2;
+  box-shadow: 0 0 10px rgba(44, 115, 210, 0.6);
+}
+
+.selected-tick {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  margin-top: 20px;
+}
+
+.btn-login {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #218838;
+}
+
+.btn-login:disabled {
+  background-color: #d9d9d9;
+  color: #a6a6a6;
+}
+
+/* Footer */
+.footer {
+  background-color: #e0e0e0;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 90%;
+  }
+
+  .btn-login {
+    width: 70%;
+  }
+
+  .overlay-text h1 {
+    font-size: 2rem;
+  }
+
+  .overlay-text h2 {
+    font-size: 1rem;
+  }
+}
