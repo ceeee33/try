@@ -9,7 +9,6 @@ import "./admin.css";
 const Notifications = () => {
     const location = useLocation();
     const role = location.state?.role || localStorage.getItem('userRole');
-    // const name = location.state?.name || localStorage.getItem('userName');
 
     //Database
     const db = getFirestore(app);
@@ -20,13 +19,11 @@ const Notifications = () => {
 
     const lowStockNoti = async() => {
         try {
-            // Create a query to fetch inventory items where category is "Food"
             const q = query(
                 collection(db, "inventory"),
                 where("stock_level", "==", "Low")
             );
     
-            // Execute the query and get the document snapshots
             const querySnapshot = await getDocs(q);
 
             const notifications = [];
@@ -64,7 +61,7 @@ const Notifications = () => {
 
             const notifications = [];
 
-            const expiryCheck = querySnapshot.docs.map(doc => {
+            querySnapshot.docs.map(doc => {
                 const data = doc.data();
                 // const itemId = doc.id;
                 const expiryDateList = data.expiry_date_list || []; // Default to empty array if no expiry date list
@@ -107,8 +104,6 @@ const Notifications = () => {
                 });
             });
 
-            // setNotiList(notifications);
-
             console.log(notifications.length);
 
             return notifications;
@@ -116,7 +111,7 @@ const Notifications = () => {
 
         } catch (error) {
             console.error("Error fetching food inventory:", error);
-            return []; // Return an empty array in case of an error
+            return []; 
         }
     } 
 
@@ -177,6 +172,11 @@ const Notifications = () => {
                             </div>
                         </div>
                         {isModalOpen && (
+                            <div>
+                            <div 
+                            className="model-bck"
+                            onClick={() => setIsModalOpen(false)}
+                            />
                             <div className="model">
                                 <h3>{noti.title}</h3>
                                 <p>{noti.message}</p> <br></br>
@@ -190,14 +190,15 @@ const Notifications = () => {
                                     onClick={handleCloseModal}
                                 >Close</button>
                             </div>
+                            </div>
                         )}
 
-                        {isModalOpen && (
+                        {/* {isModalOpen && (
                             <div 
                                 className="model-bck"
                                 onClick={() => setIsModalOpen(false)}
                             />
-                        )}
+                        )} */}
                     </div>
                     ))
             ) : (

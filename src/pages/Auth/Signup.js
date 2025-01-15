@@ -18,9 +18,6 @@ const Signup = () => {
     email: "",
     phoneNum: "",
     matric: "",
-    // branch: "",
-    // schoolStudy: "",
-    // yearStudy: "",
     password: "",
     confirmPassword: "",
   })
@@ -33,13 +30,10 @@ const Signup = () => {
   });
   const [errors, setErrors] = useState({
     name: "",
-    age: "", //Nid change to date of birth ma
+    age: "",
     email: "",
     phoneNum: "",
     matric: "",
-    // branch: "",
-    // schoolStudy: "",
-    // yearStudy: "",
     password: "",
     confirmPassword: "",
   });
@@ -50,9 +44,6 @@ const Signup = () => {
     phoneNum: 'Enter your phone number',
     age: 'Enter your age',
     matric: 'Enter your matric number',
-    // branch: 'Select your branch of study',
-    // schoolStudy: 'Enter your school of study',
-    // yearStudy: 'Enter your year of study',
     password: 'Create a strong password',
     confirmPassword: 'Re-enter your password for confirmation',
   };
@@ -145,9 +136,6 @@ const Signup = () => {
       : validateField(password, 'Password is required!');
     newErrors.confirmPassword = password !== confirmPassword ? 'Passwords do not match!' : validateField(confirmPassword, 'Retype your password!');
     if (role === 'student') {
-      // newErrors.branch = validateField(branch, 'Branch is required!');
-      // newErrors.schoolStudy = validateField(schoolStudy, 'School of study is required!');
-      // newErrors.yearStudy = validateField(yearStudy, 'Year of study is required!');
       newErrors.matric = validateField(matric, 'Matric number is required!');
 
       try {
@@ -185,9 +173,6 @@ const Signup = () => {
         createdAt: new Date(),
 
         ...(role === 'student' && {
-          // year: yearStudy,
-          // school: schoolStudy,
-          // branch: branch,
           matric_num: matric
         })
       });

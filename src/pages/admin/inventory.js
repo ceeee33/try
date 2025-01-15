@@ -300,26 +300,6 @@ const Inventory = () =>{
                     });
                 }
 
-                //   const itemDoc = query2.docs[0];
-                //   const itemRef = doc(db, "inventory", itemDoc.id);
-  
-                //   const ref = await getDoc(itemRef);
-  
-                //   const data = ref.data();
-                  
-                //   // const data = itemDoc.data();
-                //   const stockLevel = setStockLevel(newItem.quantity, data.low_threshold, data.high_threshold);
-  
-                //   await addDoc(collection(db, "inventory"), {
-                //       ...newItem,
-                //       low_threshold: data.low_threshold,  // Use existing low_threshold
-                //       high_threshold: data.high_threshold, // Use existing high_threshold
-                //       unit: data.unit,
-                //       stock_level: stockLevel,
-                //   });
-  
-                //   console.log("Item updated2 successfully."); 
-
             } else {
 
             //Check if item already exists in that campus
@@ -408,18 +388,10 @@ const Inventory = () =>{
     // Handle input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
-        // console.log(newItem);
-        // setNewItem((prevItem) => {
-        //     ...prevItem, [name]: value
-        //     // return updated;
-        // });
         setNewItem((prevItem) => {
             const updatedItem = { ...prevItem, [name]: value };
-            // console.log("Updated newItem:", updatedItem); // This prints the updated state
             return updatedItem;
         });
-        // console.log(newItem);
-
     };
 
     // Delete an item
@@ -791,7 +763,7 @@ const Inventory = () =>{
                                     <label key={campus}>
                                         <input
                                         type="checkbox"
-                                        value={campus}
+                                        value= {campus}
                                         checked={selectedFilters.campus.includes(campus)}
                                         onChange={(e) => handleFilterChange(e, "campus")}
                                         />
@@ -807,7 +779,7 @@ const Inventory = () =>{
                                     <label key={category}>
                                         <input
                                         type="checkbox"
-                                        value={category}
+                                        value= {category}
                                         checked={selectedFilters.category.includes(category)}
                                         onChange={(e) => handleFilterChange(e, "category")}
                                         />
@@ -823,7 +795,7 @@ const Inventory = () =>{
                                     <label key={stocklevel}>
                                         <input
                                         type="checkbox"
-                                        value={stocklevel}
+                                        value= {stocklevel}
                                         checked={selectedFilters.stock_level.includes(stocklevel)}
                                         onChange={(e) => handleFilterChange(e, "stock_level")}
                                         />
@@ -847,10 +819,15 @@ const Inventory = () =>{
                         <div className="model">
                             <h3>Confirm to remove the item?</h3>
                             <p>The item details will not be recovered anymore</p>
-                            <button 
-                                onClick={() => deleteItem(selectedItemID)}
-                            >Remove</button>
-                            <button onClick={() => openRemoveModal(false)}>Cancel</button>
+                            <div className="form-btn" >
+                                <button
+                                    type = "remove"
+                                    onClick={() => deleteItem(selectedItemID)}
+                                >Remove</button>
+                                <button 
+                                    type = "button"
+                                    onClick={() => openRemoveModal(false)}>Cancel</button>
+                            </div>
                         </div>
                     )}
 
