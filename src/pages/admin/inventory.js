@@ -189,7 +189,6 @@ const Inventory = () =>{
             // }
         }
     }
-    
 
     //Set stock level
     const setStockLevel = (quan, low, high) => {
@@ -301,7 +300,6 @@ const Inventory = () =>{
                 }
 
             } else {
-
             //Check if item already exists in that campus
             const q1 = query(
                 collection(db, "inventory"),
@@ -582,24 +580,9 @@ const Inventory = () =>{
                             </div>
                             <div className="label">
                                 <label>Unit:</label>
-                                {/* <input
-                                    type="text"
-                                    name="unit"
-                                    value={newItem.unit}
-                                    onChange={handleChange}
-                                    required
-                                    readOnly
-                                /> */}
+
                                 <span>{newItem.unit}</span>
-                                {/* <span>
-                                    {[...new Set(filteredCat.map(item => item.item_name))].map((item_name, id) => (
-                                            <option 
-                                                key={id} 
-                                                value={item_name}>
-                                                {item_name}
-                                            </option>
-                                        ))}
-                                </span> */}
+
                             </div>
                             </form>
                             <div className="form-btn">
